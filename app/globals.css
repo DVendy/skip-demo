@@ -2,20 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #edf2f7;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  .nm-flat-gray-200 {
+    background: #edf2f7;
+    box-shadow: .2em .2em .4em #99b5d2, -.2em -.2em .4em #fff
+  }
+
+  .hover\:nm-flat-gray-200-lg:hover,
+  .nm-flat-gray-200-lg {
+    background: #edf2f7;
+    box-shadow: .4em .4em .8em #99b5d2, -.4em -.4em .8em #fff
+  }
+
+  .nm-concave-gray-200-sm {
+    background: linear-gradient(145deg, #bbcee1, #fff);
+    box-shadow: .1em .1em .2em #99b5d2, -.1em -.1em .2em #fff
+  }
+
+  .nm-convex-gray-200-xs {
+    background: linear-gradient(145deg, #fff, #bbcee1);
+    box-shadow: .05em .05em .1em #99b5d2, -.05em -.05em .1em #fff
+  }
+
+  .nm-inset-gray-200-sm {
+    background: #edf2f7;
+    box-shadow: inset .1em .1em .2em #99b5d2, inset -.1em -.1em .2em #fff
+  }
+
+  .nm-inset-gray-200 {
+    background: #edf2f7;
+    box-shadow: inset .2em .2em .4em #99b5d2, inset -.2em -.2em .4em #fff
+  }
+
+  .nm-inset-green-500 {
+    background: #48bb78;
+    box-shadow: inset .2em .2em .4em #358e5a, inset -.2em -.2em .4em #6ec994
+  }
+
+  .nm-inset-blue-500 {
+    background: #4299e1;
+    box-shadow: inset .2em .2em .4em #1e75bc, inset -.2em -.2em .4em #74b4e9
+  }
 }
