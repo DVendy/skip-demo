@@ -10,6 +10,7 @@ import {
 import Image from "next/image"
 import { useCallback, useState } from "react"
 import { BsCaretDownFill } from "react-icons/bs"
+import LdrsAnimation from "../LdrsAnimation"
 
 interface Props {
     chains?: Chain[]
@@ -30,12 +31,16 @@ export function DialogAsset(props: Props) {
         <div className="w-full flex flex-col appearance-none leading-5 nm-inset-gray-200 px-8 py-4 rounded-xl">
             <div className="w-full flex items-center">
                 <input type="text" placeholder="0" className="bg-transparent text-4xl font-semibold focus:outline-none w-full" />
-                <Dialog open={open} onOpenChange={(val) => setOpen(val)}>
+                <Dialog open={open} onOpenChange={(val) => setOpen((props.chains === undefined) ? false : val)}>
                     <DialogTrigger asChild>
                         <div className="flex gap-2">
                             <div className="flex items-center font-bold px-4 border border-slate-300 rounded-lg">ATOM</div>
                             <Button variant="neumorphism" size={"icon"}>
-                                <BsCaretDownFill className={`${open && 'rotate-180'} transition-transform`} />
+                                {props.chains === undefined ?
+                                    <LdrsAnimation color="#14B8A6" size={18} />
+                                    :
+                                    <BsCaretDownFill className={`${open && 'rotate-180'} transition-transform`} />
+                                }
                             </Button>
                         </div>
                     </DialogTrigger>
