@@ -16,7 +16,7 @@ export default function Home() {
     <div className="container mx-auto py-10">
       <div className="max-w-[480px] mx-auto flex flex-col items-center">
         <div className="text-4xl font-bold">SKIP API - Demo</div>
-        <div className="mt-2 text-sm font-medium text-gray-500">This is an example applications built with Skip Go API.</div>
+        <div className="mt-2 text-sm font-medium text-gray-500">An example applications built with Skip Go API.</div>
         <hr className="w-full my-8" />
         <DialogAsset
           chains={queryChains.data}
