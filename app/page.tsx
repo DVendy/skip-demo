@@ -2,9 +2,10 @@
 
 import getChains from "@/api/getChains";
 import { DialogAsset } from "@/components/global/DialogAsset";
+import { useSupabase } from "@/components/global/SupabaseProvider";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { PiSwapBold } from "react-icons/pi"
+import { PiSwapBold } from "react-icons/pi";
 
 export default function Home() {
   const queryChains = getChains();
@@ -19,7 +20,6 @@ export default function Home() {
         <div className="mt-2 text-sm font-medium text-gray-500">An example applications built with Skip Go API.</div>
         <hr className="w-full my-8" />
         <DialogAsset
-          chains={queryChains.data}
           chain={sourceChain}
           onChainSelected={(val) => setSourceChain(val)}
         />
@@ -29,7 +29,6 @@ export default function Home() {
         </Button>
 
         <DialogAsset
-          chains={queryChains.data}
           chain={destChain}
           onChainSelected={(val) => setDestChain(val)}
         />

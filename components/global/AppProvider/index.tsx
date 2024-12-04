@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import localFont from "next/font/local";
+import { SupabaseProvider } from "../SupabaseProvider";
 
 const geistSans = localFont({
     src: "../../../app/fonts/GeistVF.woff",
@@ -22,11 +23,13 @@ const AppProvider = (props: Props) => {
     const queryClient = new QueryClient();
     return (
         <QueryClientProvider client={queryClient}>
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-t from-slate-200 to-background text-gray-600 min-h-screen`}
-            >
-                {props.children}
-            </body>
+            <SupabaseProvider>
+                <body
+                    className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-t from-slate-200 to-background text-gray-600 min-h-screen`}
+                >
+                    {props.children}
+                </body>
+            </SupabaseProvider>
         </QueryClientProvider>
     );
 }
